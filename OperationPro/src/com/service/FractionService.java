@@ -44,7 +44,7 @@ public class FractionService {
 	 * 判断除数是否为0，判断分数是否为0
 	 * 不合规则返回false
 	 */
-	public boolean isrule(List list,int num){
+	public boolean isrule(List list){
 		
 		for(int i = 0;i<list.size();i++){
 			if(i%2 == 0){
