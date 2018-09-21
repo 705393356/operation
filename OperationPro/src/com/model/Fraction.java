@@ -12,6 +12,11 @@ public class Fraction {
 		this.denominator = denominator;
 		this.nominator = nominator;
 	}
+	
+	public Fraction(int nominator){
+		this.denominator = 1;
+		this.nominator = nominator;
+	}
 
 	public int getDenominator() {
 		return denominator;
@@ -28,6 +33,16 @@ public class Fraction {
 	public void setNominator(int nominator) {
 		this.nominator = nominator;
 	}
+
+	@Override
+	public String toString() {
+		if(this.denominator==1){
+			return "" + this.nominator;
+		}
+		return "" +this.denominator+"/" +this.nominator;
+	}
+	
+	
 	
 	
 	
