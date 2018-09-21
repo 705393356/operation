@@ -56,7 +56,7 @@ public class FractionService {
 				String flag = (String)list.get(i);
 				if("/".equals(flag)){
 					Fraction fraction = (Fraction)list.get(i+1); 
-					if(fraction.getDenominator() ==0 || fraction.getNominator()==0){
+					if(fraction.getDenominator() == 0 || fraction.getNominator() == 0){
 						return false;
 					}
 				}
