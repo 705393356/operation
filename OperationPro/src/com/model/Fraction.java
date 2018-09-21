@@ -45,11 +45,6 @@ public class Fraction {
 	
 	
 	
-	
-	@Override
-	public String toString() {
-		return "Fraction [denominator=" + denominator + ", nominator=" + nominator + "]";
-	}
 
 	// 加法运算
 	Fraction add(Fraction r){  
