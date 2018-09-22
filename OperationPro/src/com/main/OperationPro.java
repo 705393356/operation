@@ -28,6 +28,7 @@ public class OperationPro {
 		List<ResultMap> lists = new ArrayList<ResultMap>(); //存放分式的集合
 		ResultMap rm = null;
 		
+		
         try 
         {
             File file =new File("./Exercises.txt");

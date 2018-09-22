@@ -305,7 +305,8 @@ public class GenerateService {
 			}
 		}
 		String m = calculateService.calculate(l).toString();
-		System.out.println(m);
+		//System.out.println(m);
+		l.clear();
 		return new ResultMap(exp, m);
 
 		// System.out.println(exp);
