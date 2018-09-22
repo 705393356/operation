@@ -1,6 +1,6 @@
 package com.model;
 
-
+import java.util.Random;
 
 public class Fraction {
 
@@ -16,6 +16,22 @@ public class Fraction {
 	public Fraction(int nominator){
 		this.denominator = 1;
 		this.nominator = nominator;
+	}
+	
+	public Fraction(boolean l,int limit){
+		Random r = new Random();
+		if(l==true){
+			int index = r.nextInt(limit);
+			int index2 = r.nextInt(limit);
+			
+			this.denominator = index;
+			this.nominator = index2;
+			
+		}else {
+			int index = r.nextInt(limit);
+			this.denominator = 1;
+			this.nominator = index;
+		}
 	}
 
 	public int getDenominator() {
@@ -39,11 +55,8 @@ public class Fraction {
 		if(this.denominator==1){
 			return "" + this.nominator;
 		}
-		return "" +this.denominator+"/" +this.nominator;
+		return "" +this.nominator+"/" +this.denominator;
 	}
-	
-	
-	
 	
 
 	// 加法运算
