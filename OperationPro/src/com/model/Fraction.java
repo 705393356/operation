@@ -2,11 +2,15 @@ package com.model;
 
 import java.util.Random;
 
+/*
+ * 构建一个分数类，用来表示分数，封装相关的方法
+ */
 public class Fraction {
 
 	private int denominator;//分母
 	private int nominator;//分子
 	
+	//构建一个分数
 	public Fraction(int denominator, int nominator) {
 		super();
 		this.denominator = denominator;
@@ -22,15 +26,18 @@ public class Fraction {
 		super();
 	}
 
+	//判断构建的是一个分数还是一个整数，不超过limit的数值
 	public Fraction(boolean l,int limit){
 		Random r = new Random();
+		//这是一个分数
 		if(l==true){
 			int index = r.nextInt(limit);
 			int index2 = r.nextInt(limit);
 			
 			this.denominator = index;
 			this.nominator = index2;
-			
+		
+			//这是一个整数
 		}else {
 			int index = r.nextInt(limit);
 			this.denominator = 1;
@@ -108,13 +115,13 @@ public class Fraction {
 		return result;
 	}
 	
+	// 用辗转相除法求最大公约数
 	private static long gcd(long a, long b) {
-		// 用辗转相除法求最大公约数
 		return b == 0 ? a : gcd(b, a % b);
 	}
 
+	//对分数进行约分
 	public void Appointment() {
-		// 约分操作，来自百度翻译
 		if (nominator == 0 || denominator == 1)
 			return;
 		// 如果分子是0或分母是1就不用约分了
