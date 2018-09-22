@@ -11,6 +11,7 @@ import com.model.ResultMap;
 public class GenerateService {
 
 		 private static FractionService fractionService = new FractionService();
+		 private static CalculateService calculateService = new CalculateService();
 	
 		// 生成算式
 		public static ResultMap generateFormula(int limit) {
@@ -256,12 +257,11 @@ public class GenerateService {
 			if(result==false){
 				System.out.println("除号后为0");
 			}else {
-				System.out.println(123);
+				System.out.println("除号后无0");
 			}
 			System.out.println(exp);
 			
-			
-			return  null;
+			return  new ResultMap(exp,calculateService.calculate(l).toString());
 		}
 	
 }
