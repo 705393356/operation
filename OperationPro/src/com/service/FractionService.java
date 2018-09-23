@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -66,5 +67,21 @@ public class FractionService {
 		
 	}
 	
+	public boolean intoList(String exp,List<List<String>> all){
+		List<String> l = new ArrayList<String>();
+    	String[] StrArray = exp.split(" ");//结果Str1Array：[aa, cc, dd]
+    	for(int i=0;i<StrArray.length;i++){
+    		l.add(StrArray[i]);
+    	}
+    	
+    	boolean result = isRepeat(all, l);
+    	if(result==true){
+    		return false;
+    	}else {
+    		all.add(l);
+    		return true;
+    	}
+
+	}
 	
 }

@@ -11,18 +11,19 @@ public class Test {
 		// TODO Auto-generated method stub
 //		Generate.generateFormula(5);
 		List l = new ArrayList();
-		l.add(new Fraction(24,2));
-		l.add("+");
-		l.add(new Fraction(24,1));
-		l.add("/");
-		l.add(new Fraction(24,3));
+		l.add(new Fraction(1,1));
+		l.add("-");
+		l.add(new Fraction(1,6));
+		l.add("-");
+		l.add(new Fraction(1,7));
 		l.add("*");
-		l.add(new Fraction(24,8));
+		l.add(new Fraction(1,8));
 		CalculateService c = new CalculateService();
 		c.calculate(l);
 		if(l.size()==1){
 			System.out.println(l.get(0).toString());
 		}
+
 		
 	}
 

@@ -16,9 +16,15 @@ public class CalculateService {
 		
 		int muldiv = MulDivExist(l);
 		if(muldiv != -1){
-			MulDiv(l,muldiv);
+			String s = MulDiv(l,muldiv);
+			if(s.equals("error")){
+				return null;
+			}
 		}else {
-			AddSub(l);
+			String s = AddSub(l);
+			if(s.equals("error")){
+				return null;
+			}
 		}
 		if (l.size() == 1) {
             return (Fraction) l.get(0);
@@ -41,39 +47,58 @@ public class CalculateService {
 	}
 	
 	//计算分式的乘除，计算结果往前放
-	public void MulDiv(List l,int muldiv){
+	public String MulDiv(List l,int muldiv){
 		String fuhao = (String) l.remove(muldiv);
 		Fraction first = (Fraction) l.get(muldiv-1);
         Fraction last = (Fraction) l.get(muldiv);
         l.remove(muldiv);
         if (fuhao.equals("*")) {
-            l.set(muldiv - 1,first.muti(last));
+        	Fraction result = first.muti(last);
+            l.set(muldiv - 1,result);
+            if(result.existZero()==0){
+            	return "error";
+            }
         }
         if (fuhao.equals("/")) {
-            l.set(muldiv - 1,first.div(last));
+        	Fraction result = first.div(last);
+            l.set(muldiv - 1,result);
+            if(result.existZero()==0){
+            	return "error";
+            }
         }
+        return "right";
         
 	}
 	
 	//计算分式的加减，计算结果往前放
-	public void AddSub(List list){
+	public String AddSub(List list){
 		for (int i = 0; i < list.size(); i++) {
             if (list.get(i).equals("+")) {
             	Fraction first = (Fraction) list.get(i-1);
                 list.remove(i);
                 Fraction last = (Fraction) list.get(i);
                 list.remove(i);
-                list.set(i - 1, first.add(last));
+                Fraction result = first.add(last);
+                list.set(i - 1, result);
                 i--;
+                if(result.existZero()==0){
+                	return "error";
+                }
             }
             if (list.get(i).equals("-")) {
             	Fraction first = (Fraction) list.get(i-1);
                 list.remove(i);
                 Fraction last = (Fraction) list.get(i);
                 list.remove(i);
-                list.set(i - 1, first.sub(last));
+                Fraction result = first.sub(last);
+                list.set(i - 1, result);
                 i--;
+                if(result.existZero()==0){
+                	return "error";
+                }
             }
         }
+		return "right";
 	}
+	
 }

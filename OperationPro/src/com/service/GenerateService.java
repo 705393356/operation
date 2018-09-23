@@ -307,11 +307,14 @@ public class GenerateService {
 		if(!fractionService.isrule(l)){
 			return null;
 		}
-		String m = calculateService.calculate(l).toString();
+		Fraction m = calculateService.calculate(l);
+		if(m==null){
+			return null;
+		}
+//		String m = calculateService.calculate(l).toString();
 		//System.out.println(m);
 		l.clear();
-		return new ResultMap(exp, m);
-
+		return new ResultMap(exp, m.toString());
 		// System.out.println(exp);
 
 	}

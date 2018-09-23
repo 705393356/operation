@@ -140,4 +140,12 @@ public class Fraction {
 		this.nominator /= gcd;
 		this.denominator /= gcd;
 	}
+	
+	public int existZero(){
+		if(this.nominator<0||this.denominator<0){
+			return 0;
+		}else {
+			return 1;
+		}
+	}
 }
