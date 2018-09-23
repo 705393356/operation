@@ -54,12 +54,7 @@ public class OperationPro {
 		}
         
         System.out.println(date);
-        
        
-       
-        
-        
-
 	}
 
 }

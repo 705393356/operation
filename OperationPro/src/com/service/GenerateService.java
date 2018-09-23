@@ -39,9 +39,9 @@ public class GenerateService {
 				l.add(f);
 				l.add(symbol);
 				l.add(f2);
-				if(!fractionService.isrule(l)){
-					return null;
-				}
+//				if(!fractionService.isrule(l)){
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol + " " + f2.toString();
 				
 			} else if (franum == 1) {
@@ -55,9 +55,9 @@ public class GenerateService {
 				l.add(symbol);
 				l.add(f2);
 				
-				if(!fractionService.isrule(l)){
-					return null;
-				}
+//				if(!fractionService.isrule(l)){
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol + " " + f2.toString();
 				
 			} else if (franum == 2) {
@@ -69,9 +69,9 @@ public class GenerateService {
 				l.add(f);
 				l.add(symbol);
 				l.add(f2);
-				if(!fractionService.isrule(l)){
-					return null;
-				}
+//				if(!fractionService.isrule(l)){
+//					return null;
+//				}
 				
 				exp = "" + f.toString() + " " + symbol + " " + f2.toString();
 			}
@@ -95,9 +95,9 @@ public class GenerateService {
 				l.add(symbol2);
 				l.add(f3);
 				
-				if(!fractionService.isrule(l)){
-					return null;
-				}
+//				if(!fractionService.isrule(l)){
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString();
 				
 			} else if (franum == 1) {
@@ -115,9 +115,9 @@ public class GenerateService {
 				l.add(f2);
 				l.add(symbol2);
 				l.add(f3);
-				if(!fractionService.isrule(l)){
-					return null;
-				}
+//				if(!fractionService.isrule(l)){
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString();
 			} else if (franum == 2) {
 				// 两个分数
@@ -135,9 +135,9 @@ public class GenerateService {
 				l.add(f2);
 				l.add(symbol2);
 				l.add(f3);
-				if(!fractionService.isrule(l)){
-					return null;
-				}
+//				if(!fractionService.isrule(l)){
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString();
 				
 			
@@ -155,9 +155,9 @@ public class GenerateService {
 				l.add(f2);
 				l.add(symbol2);
 				l.add(f3);
-				if(!fractionService.isrule(l)){
-					return null;
-				}
+//				if(!fractionService.isrule(l)){
+//					return null;
+//				}
 				
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString();
 			}
@@ -187,9 +187,9 @@ public class GenerateService {
 				l.add(f3);
 				l.add(symbol3);
 				l.add(f4);
-				if (!fractionService.isrule(l)) {
-					return null;
-				}
+//				if (!fractionService.isrule(l)) {
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString()
 				+ " " + symbol3 + " " + f4.toString();
 
@@ -213,9 +213,9 @@ public class GenerateService {
 				l.add(f3);
 				l.add(symbol3);
 				l.add(f4);
-				if (!fractionService.isrule(l)) {
-					return null;
-				}
+//				if (!fractionService.isrule(l)) {
+//					return null;
+//				}
 				
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString()
 				+ " " + symbol3 + " " + f4.toString();
@@ -238,9 +238,9 @@ public class GenerateService {
 				l.add(f3);
 				l.add(symbol3);
 				l.add(f4);
-				if (!fractionService.isrule(l)) {
-					return null;
-				}
+//				if (!fractionService.isrule(l)) {
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString()
 				+ " " + symbol3 + " " + f4.toString();
 			} else if (franum == 3) {
@@ -262,9 +262,9 @@ public class GenerateService {
 				l.add(f3);
 				l.add(symbol3);
 				l.add(f4);
-				if (!fractionService.isrule(l)) {
-					return null;
-				}
+//				if (!fractionService.isrule(l)) {
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString()
 				+ " " + symbol3 + " " + f4.toString();
 			} else if (franum == 3) {
@@ -286,9 +286,9 @@ public class GenerateService {
 				l.add(f3);
 				l.add(symbol3);
 				l.add(f4);
-				if (!fractionService.isrule(l)) {
-					return null;
-				}
+//				if (!fractionService.isrule(l)) {
+//					return null;
+//				}
 				exp = "" + f.toString() + " " + symbol1 + " " + f2.toString() + " " + symbol2 + " " + f3.toString()
 				+ " " + symbol3 + " " + f4.toString();
 			}
@@ -303,6 +303,9 @@ public class GenerateService {
 					l.set(i, "/");
 				}
 			}
+		}
+		if(!fractionService.isrule(l)){
+			return null;
 		}
 		String m = calculateService.calculate(l).toString();
 		//System.out.println(m);

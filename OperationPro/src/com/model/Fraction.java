@@ -34,10 +34,11 @@ public class Fraction {
 			int index = r.nextInt(limit);
 			int index2 = r.nextInt(limit);
 
-			if (index == 0) {
+			while(index==0) {
 				index = r.nextInt(limit);
+//				System.out.println("会生成0："+index);
 			}
-
+//			System.out.println("不会生成0："+index);
 			this.denominator = index;
 			this.nominator = index2;
 
@@ -67,9 +68,16 @@ public class Fraction {
 
 	@Override
 	public String toString() {
+		if(this.denominator == 0){
+			System.out.println(this.nominator + "|" + this.denominator);
+			System.out.println("分母为0");
+		}
 		if (this.denominator == 1 || this.nominator == 0) {
 			return "" + this.nominator;
 		}else if (this.nominator > this.denominator) {
+			if(nominator % denominator==0){
+				return "" + nominator / denominator;
+			}
 			return "" + nominator / denominator + "," + nominator % denominator + "/" + denominator;
 		}else{
 			return "" + this.nominator + "/" + this.denominator;
