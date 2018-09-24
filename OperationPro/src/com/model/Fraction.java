@@ -68,6 +68,7 @@ public class Fraction {
 
 	@Override
 	public String toString() {
+		Appointment();
 		if(this.denominator == 0){
 			System.out.println(this.nominator + "|" + this.denominator);
 			System.out.println("分母为0");
