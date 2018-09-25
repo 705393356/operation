@@ -6,12 +6,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CheckService {
 
 	
-	public static void Check(String checked,String answer) throws IOException{
-		
+	public static Map<String,String> Check(String checked,String answer) throws IOException{
+		Map<String,String> m = new HashMap<String,String>();
 		String error = "";
 		String correct = "";
 		int errornum = 0;
@@ -33,17 +35,34 @@ public class CheckService {
 		
 		while((str1=reader1.readLine())!=null&&(str2=reader2.readLine())!=null){
 			if(!str1.trim().equals(str2.trim())){
-				error = error + str1.substring(0, 1)+ ",";
+//				System.out.println(str1);
+				String[] str = str1.split("\\.");
+				error = error + str[0]+ ",";
 				errornum ++ ;
 			}else {
-				correct = correct + str1.substring(0, 1) + ",";
+//				System.out.println(str1);
+				String[] str = str1.split("\\.");
+				correct = correct + str[0] + ",";
 				correctnum ++;
 			}
 			
 		}
 		
-		System.out.println("Wrong: " + errornum + "(" + error.substring(0,error.length()-1) + ")");
-		System.out.println("Correct: " + correctnum + "("+correct.substring(0, correct.length()-1)+")");
-	}
+		if(error.equals("")){
+			error = "Wrong: " + errornum + "";
+		}else {
+			error = "Wrong: " + errornum + "(" + error.substring(0,error.length()-1) + ")";
+		}
+		if(correct.equals("")){
+			correct = "Correct: " + correctnum + "";
+		}else {
+			correct = "Correct: " + correctnum + "("+correct.substring(0, correct.length()-1)+")";
+		}
+		System.out.println(error);
+		System.out.println(correct);
+		m.put("wrong", error);
+		m.put("correct", correct);
+		return m;
+		}
 	
 }

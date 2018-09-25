@@ -13,8 +13,13 @@ import java.util.Scanner;
 import com.model.ResultMap;
 import com.service.GenerateService;
 
+	/*
+	 * 
+	 * 弃置的代码
+	 */
 public class Main {
 
+	
 	public static void main(String[] args) {
 
 		BufferedOutputStream bo = null; // 写入到文件的缓冲流
