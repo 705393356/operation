@@ -58,8 +58,8 @@ public class CheckService {
 		}else {
 			correct = "Correct: " + correctnum + "("+correct.substring(0, correct.length()-1)+")";
 		}
-		System.out.println(error);
-		System.out.println(correct);
+//		System.out.println(error);
+//		System.out.println(correct);
 		m.put("wrong", error);
 		m.put("correct", correct);
 		return m;

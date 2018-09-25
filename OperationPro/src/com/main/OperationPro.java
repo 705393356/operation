@@ -39,7 +39,12 @@ public class OperationPro {
     		}else {
     			String checked = args[1];
     			String answer = args[3];
-    			mainCheck(checked,answer);
+    			boolean result = mainCheck(checked,answer);
+    			if(result){
+    				System.out.println("成绩文件生成在jar包同级文件夹");
+    			}else {
+    				System.out.println("程序出现错误");
+    			}
     		}
     	}else {
     		System.out.println("请按规格输入参数 ");
@@ -116,6 +121,7 @@ public class OperationPro {
 			e.printStackTrace();
 			return false;
 		}
+		
 	}
 
 }
