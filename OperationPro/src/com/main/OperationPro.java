@@ -61,8 +61,7 @@ public class OperationPro {
 	public static boolean mainGenerate(int limit,int num){
 		String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
 		BufferedOutputStream bo = null; // 写入到文件的缓冲流
-		// GenerateService gs = new GenerateService(); // 生成分式类
-		// List<ResultMap> lists = new ArrayList<ResultMap>(); //存放分式的集合
+		BufferedOutputStream bo2 = null;
 		List<List<String>> lists = new ArrayList<List<String>>();
 		ResultMap rm = null;
 //		num = 10000;
@@ -70,13 +69,15 @@ public class OperationPro {
 
 		try {
 			File file = new File("./Exercises.txt");
+			File file2 = new File("./Answer.txt");
 			bo = new BufferedOutputStream(new FileOutputStream(file));
+			bo2 = new BufferedOutputStream(new FileOutputStream(file2));
 //			bo.write(date.getBytes());
 //			bo.write("\r\n".getBytes());
 			while (i <= num) {
 				
 				// PrintStream ps = new PrintStream(new FileOutputStream(file));
-				rm = gs.generateFormula(limit);// 先暂定写一个最大值为4的分式
+				rm = gs.generateFormula(limit);
 				if (rm != null) {
 					boolean result = fs.intoList(rm.getExp(), lists);
 					if (result == false) {
@@ -84,14 +85,19 @@ public class OperationPro {
 					}
 //					System.out.println(rm.getExp() + "=" + rm.getResult());
 					bo.write((i+".").getBytes());
-					bo.write(rm.toString().getBytes());
+					bo.write(rm.toStringExp().getBytes());
 					bo.write("\r\n".getBytes());
 
+					bo2.write((i+".").getBytes());
+					bo2.write(rm.toString().getBytes());
+					bo2.write("\r\n".getBytes());
 					i++;
 				}
 			}
 			bo.flush();
+			bo2.flush();
 			bo.close();
+			bo2.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return false;

@@ -35,6 +35,10 @@ public class ResultMap {
 		return exp + " = "+result;
 	}
 	
+	public String toStringExp(){
+		return exp + " = ";
+	}
+	
 	
 	
 }
